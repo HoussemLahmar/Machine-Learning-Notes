@@ -164,8 +164,8 @@ DBSCAN (Density-Based Spatial Clustering of Applications with Noise) groups data
 
 The DBSCAN algorithm can be represented mathematically as:
 
-- \( \text{Eps} \) = maximum distance between points in a cluster
-- \( \text{MinPts} \) = minimum number of points required to form a dense region
+- $\( \text{Eps} \)$ = maximum distance between points in a cluster
+- $\( \text{MinPts} \)$ = minimum number of points required to form a dense region
 
 #### Logical Algorithm
 
