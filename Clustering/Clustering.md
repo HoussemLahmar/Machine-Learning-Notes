@@ -10,8 +10,8 @@ Given a dataset \( X \) with \( n \) data points and \( m \) features, the clust
 
 The clustering process can be represented mathematically as:
 
-\[ X = \{x_1, x_2, \ldots, x_n\} \]
-\[ C = \{c_1, c_2, \ldots, c_k\} \]
+<p>\( X = \{x_1, x_2, \ldots, x_n\} \)</p>
+<p>\( C = \{c_1, c_2, \ldots, c_k\} \)</p>
 
 where \( C \) represents the set of cluster centroids.
 
