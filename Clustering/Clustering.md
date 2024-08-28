@@ -1,4 +1,4 @@
-# Clustering Course Notes
+ # Clustering Course Notes
 
 ## 1. How Clustering Works
 
@@ -10,8 +10,13 @@ Given a dataset \( X \) with \( n \) data points and \( m \) features, the clust
 
 The clustering process can be represented mathematically as:
 
-<p>\( X = \{x_1, x_2, \ldots, x_n\} \)</p>
-<p>\( C = \{c_1, c_2, \ldots, c_k\} \)</p>
+$$
+X = \{x_1, x_2, \ldots, x_n\}
+$$
+
+$$
+C = \{c_1, c_2, \ldots, c_k\}
+$$
 
 where \( C \) represents the set of cluster centroids.
 
@@ -30,7 +35,9 @@ Euclidean distance is a measure of the straight-line distance between two points
 
 The Euclidean distance between two points \( x \) and \( y \) can be calculated as:
 
-\[ d(x, y) = \sqrt{\sum (x - y)^2} \]
+$$
+d(x, y) = \sqrt{\sum (x - y)^2}
+$$
 
 where \( d(x, y) \) represents the Euclidean distance between \( x \) and \( y \).
 
@@ -67,7 +74,9 @@ Feature normalization is a preprocessing step that scales the features of the da
 
 The feature normalization process can be represented mathematically as:
 
-\[ x' = \frac{x - \text{min}}{\text{max} - \text{min}} \]
+$$
+x' = \frac{x - \text{min}}{\text{max} - \text{min}}
+$$
 
 where \( x' \) represents the normalized feature value, \( x \) represents the original feature value, \( \text{min} \) represents the minimum value of the feature, and \( \text{max} \) represents the maximum value of the feature.
 
@@ -107,8 +116,13 @@ Clustering is a powerful unsupervised machine learning algorithm that groups sim
 
 The clustering process can be represented mathematically as:
 
-\[ X = \{x_1, x_2, \ldots, x_n\} \]
-\[ C = \{c_1, c_2, \ldots, c_k\} \]
+$$
+X = \{x_1, x_2, \ldots, x_n\}
+$$
+
+$$
+C = \{c_1, c_2, \ldots, c_k\}
+$$
 
 where \( C \) represents the set of cluster centroids.
 
@@ -129,7 +143,9 @@ Hierarchical clustering builds a hierarchy of clusters by merging or splitting e
 
 The hierarchical clustering algorithm can be represented mathematically as:
 
-\[ H = \{h_1, h_2, \ldots, h_k\} \]
+$$
+H = \{h_1, h_2, \ldots, h_k\}
+$$
 
 where \( H \) represents the hierarchy of clusters.
 
@@ -170,7 +186,9 @@ The Silhouette Coefficient measures how similar an object is to its own cluster 
 
 The Silhouette Coefficient can be calculated as:
 
-\[ s = \frac{b - a}{\max(a, b)} \]
+$$
+s = \frac{b - a}{\max(a, b)}
+$$
 
 where \( a \) is the average distance to the points in the same cluster, and \( b \) is the average distance to the points in the nearest cluster.
 
@@ -182,7 +200,9 @@ The Calinski-Harabasz Index measures the ratio of between-cluster variance to wi
 
 The Calinski-Harabasz Index can be calculated as:
 
-\[ \text{CH} = \frac{B / W \cdot (N - k)}{k - 1} \]
+$$
+\text{CH} = \frac{B / W \cdot (N - k)}{k - 1}
+$$
 
 where \( B \) is the between-cluster variance, \( W \) is the within-cluster variance, \( N \) is the total number of data points, and \( k \) is the number of clusters.
 
@@ -199,11 +219,9 @@ from sklearn.cluster import KMeans
 import numpy as np
 
 # Load dataset
-X = np.array([[1, 2], [1, 4], [1, 0], [4, 2], [4,
+X = np.array([[1, 2], [1, 4], [1, 0], [4, 2], [4, 4], [4, 0]])
 
- 4], [4, 0]])
-
-# Initialize K-means
+# Initialize K-means with k=2
 kmeans = KMeans(n_clusters=2)
 
 # Fit the model
@@ -215,6 +233,8 @@ centroids = kmeans.cluster_centers_
 # Get cluster labels
 labels = kmeans.labels_
 
-print("Cluster centroids:", centroids)
-print("Cluster labels:", labels)
+print("Cluster Centroids:")
+print(centroids)
+print("Cluster Labels:")
+print(labels)
 ```
