@@ -3,7 +3,7 @@
 **Simple Linear Regression:**
 Simple Linear Regression is a fundamental supervised learning algorithm that predicts a continuous output variable based on a single input feature. The relationship between the input and output is modeled as a straight line, which can be expressed as:
 
-\[ y = \beta_0 + \beta_1x + \epsilon \]
+$\[ y = \beta_0 + \beta_1x + \epsilon \]$
 
 - \( y \): Target variable (output)
 - \( x \): Input feature (predictor)
