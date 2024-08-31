@@ -41,7 +41,7 @@ where:
 
 The cost function measures the average squared difference between predicted and actual values. The goal is to minimize the cost function.
 
-```
+```math
 J(β) = (1/2n) * ∑(y_i - (β0 + β1x_i))^2
 ```
 
