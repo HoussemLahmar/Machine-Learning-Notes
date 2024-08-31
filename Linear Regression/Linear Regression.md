@@ -9,10 +9,10 @@
 The simple linear regression equation is:
 
 
-
+$
 y = $\beta_0$ + $\beta_1x$ + $\epsilon$
 
-
+$
 where:
 
 - \(y\) is the target variable (output)
