@@ -1,94 +1,244 @@
-### Linear Regression 
 
-**Simple Linear Regression:**
-Simple Linear Regression is a fundamental supervised learning algorithm that predicts a continuous output variable based on a single input feature. The relationship between the input and output is modeled as a straight line, which can be expressed as:
+# Linear Regression
 
-$$\[ y = \beta_0 + \beta_1x + \epsilon \]$$
+## Simple LR
+**Simple Linear Regression** is a type of supervised learning algorithm that predicts a continuous output variable based on a single input feature. The goal is to create a linear equation that best predicts the value of the target variable.
 
-- \( y \): Target variable (output)
-- \( x \): Input feature (predictor)
-- \( \beta_0 \): Intercept (bias term)
-- \( \beta_1 \): Slope coefficient (weight)
-- \( \epsilon \): Error term (residual)
+## Equation
 
-**Vectorization:**
-To efficiently perform linear regression on a dataset, vectorization is employed. The regression equation in matrix form is:
+The simple linear regression equation is:
 
-\[ y = X\beta + \epsilon \]
+$$
+y = \beta_0 + \beta_1x + \epsilon
+$$
 
-- \( X \): An \( n \times 2 \) matrix (where \( n \) is the number of samples), including the bias term (1) and the input feature values.
-- \( \beta \): A \( 2 \times 1 \) vector containing the intercept and slope coefficients.
-- \( \epsilon \): An \( n \times 1 \) vector representing the error terms.
+where:
 
-### Important Functions and Equations
+- \(y\) is the target variable (output)
+- \(x\) is the input feature (predictor)
+- \(\beta_0\) is the intercept or bias term
+- \(\beta_1\) is the slope coefficient
+- \(\epsilon\) is the error term (residual)
 
-**Cost Function (Mean Squared Error - MSE):**
-The cost function for linear regression is the Mean Squared Error (MSE), which measures the average squared difference between predicted and actual values:
+## Vectorization
 
-\[ J(\beta) = \frac{1}{2n} \sum_{i=1}^{n} \left(y_i - (\beta_0 + \beta_1x_i)\right)^2 \]
+To perform linear regression on a dataset, we can represent the data using vectors and matrices. Let's denote the input feature vector as **X** and the target variable vector as **y**. We can then write the linear regression equation in matrix form:
 
-Here, \( J(\beta) \) is the cost function, \( n \) is the number of samples, and \( y_i \) and \( x_i \) represent the \( i \)-th target variable and input feature value.
+$$
+y = X\beta + \epsilon
+$$
 
-**Gradient Descent:**
-Gradient descent is an iterative optimization technique used to minimize the cost function by updating the model parameters:
+where:
 
-- **For intercept (\( \beta_0 \)):**
+- **X** is an \(n \times 2\) matrix, where \(n\) is the number of samples, and each row represents a data point with a bias term (1) and the input feature value
+- \(\beta\) is a \(2 \times 1\) vector, containing the intercept and slope coefficients
+- \(\epsilon\) is an \(n \times 1\) vector, representing the error terms
 
-  \[ \beta_0^{new} = \beta_0^{old} - \alpha \cdot \frac{1}{n} \sum_{i=1}^{n} \left(-2 \cdot (y_i - (\beta_0^{old} + \beta_1^{old} \cdot x_i))\right) \]
+## Important Functions and Equations
 
-- **For slope (\( \beta_1 \)):**
+### Cost Function (Mean Squared Error - MSE)
 
-  \[ \beta_1^{new} = \beta_1^{old} - \alpha \cdot \frac{1}{n} \sum_{i=1}^{n} \left(-2 \cdot x_i \cdot (y_i - (\beta_0^{old} + \beta_1^{old} \cdot x_i))\right) \]
+The cost function measures the average squared difference between predicted and actual values. The goal is to minimize the cost function.
 
-\( \alpha \) is the learning rate, which controls the step size during parameter updates.
+$$
+J(\beta) = \frac{1}{2n} \sum{(y_i - (\beta_0 + \beta_1x_i))^2}
+$$
 
-### Evaluating the Model
+where \(J(\beta)\) is the cost function, \(n\) is the number of samples, and \(y_i\) and \(x_i\) are the \(i\)-th target variable and input feature values, respectively.
 
-**Coefficient of Determination (R-squared):**
-R-squared measures the proportion of variance in the target variable that is predictable from the input feature:
+### Gradient Descent
 
-\[ R^2 = 1 - \frac{SSE}{SST} \]
+Gradient descent is an optimization algorithm used to minimize the cost function. It updates the model parameters iteratively using the following equations:
 
-Where \( SSE \) is the sum of squared errors, and \( SST \) is the total sum of squares.
+$$
+\beta_0^{new} = \beta_0^{old} - \alpha \times \frac{1}{n} \sum(-2 \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_i)))
+$$
 
-**Mean Absolute Error (MAE):**
-MAE measures the average absolute difference between predicted and actual values:
+$$
+\beta_1^{new} = \beta_1^{old} - \alpha \times \frac{1}{n} \sum(-2 \times x_i \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_i)))
+$$
 
-\[ MAE = \frac{1}{n} \sum_{i=1}^{n} \left|y_i - (\beta_0 + \beta_1x_i)\right| \]
+where \(\alpha\) is the learning rate, and \(\beta_0^{old}\) and \(\beta_1^{old}\) are the previous values of the intercept and slope coefficients, respectively.
 
-### Multiple Linear Regression
+### Evaluating the Fitness of the Model with a Cost Function
 
-**Equation:**
-Multiple Linear Regression extends simple linear regression by considering multiple input features:
+To evaluate the fitness of the model, we can use the cost function (MSE) to measure the average squared difference between predicted and actual values. A lower cost function value indicates a better fit.
 
-\[ y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \beta_nx_n + \epsilon \]
+## Solving OLS for Simple Linear Regression
 
-**Vectorization:**
-In matrix form, the equation becomes:
+Ordinary Least Squares (OLS) is a method for estimating the model parameters that minimize the sum of the squared errors. The OLS solution for simple linear regression is:
 
-\[ y = X\beta + \epsilon \]
+$$
+\beta_1 = \frac{\sum{(x_i - \bar{x}) \times (y_i - \bar{y})}}{\sum{(x_i - \bar{x})^2}}
+$$
 
-- \( X \): An \( n \times (p+1) \) matrix, where \( p \) is the number of features.
+$$
+\beta_0 = \bar{y} - \beta_1 \times \bar{x}
+$$
 
-**Gradient Descent Updates:**
-For each coefficient:
+where \(\bar{x}\) and \(\bar{y}\) are the means of the input feature and target variable, respectively.
 
-- \( \beta_j^{new} = \beta_j^{old} - \alpha \cdot \frac{1}{n} \sum_{i=1}^{n} \left(-2 \cdot x_{ij} \cdot (y_i - (\beta_0^{old} + \dots + \beta_j^{old} \cdot x_{ij}))\right) \)
+## Evaluating the Model
 
-### Polynomial Regression
+To evaluate the model, we can use metrics such as:
 
-Polynomial Regression models the relationship between the independent variable and the dependent variable as an \( n \)-th degree polynomial:
+### Coefficient of Determination (R-squared)
+Measures the proportion of the variance in the target variable that is predictable from the input feature.
 
-\[ y = \beta_0 + \beta_1x + \beta_2x^2 + \dots + \beta_nx^n + \epsilon \]
+$$
+R^2 = 1 - \frac{SSE}{SST}
+$$
 
-In matrix form:
+where SSE is the sum of the squared errors, and SST is the total sum of squares.
 
-\[ y = X\beta + \epsilon \]
+### Mean Absolute Error (MAE)
+Measures the average absolute difference between predicted and actual values.
 
-### Applying Linear Regression
+$$
+MAE = \frac{1}{n} \sum{|y_i - (\beta_0 + \beta_1x_i)|}
+$$
 
-Linear regression can be used for various applications, including predicting continuous outcomes, analyzing relationships between variables, and identifying patterns. Before applying linear regression, it's essential to explore and visualize the data, using scatter plots or calculating the correlation coefficient to understand the relationships.
+# Multiple Linear Regression
 
-### Conclusion
+**Multiple Linear Regression** is an extension of simple linear regression, where multiple input features are used to predict the target variable.
 
-Linear regression is a foundational tool in machine learning for predicting continuous outcomes and analyzing relationships. Mastery of the underlying equations, cost functions, and optimization techniques, along with data exploration, can significantly enhance the performance and insights of your models.
+## Equation
+
+The multiple linear regression equation is:
+
+$$
+y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \beta_nx_n + \epsilon
+$$
+
+where \(x_1, x_2, \dots, x_n\) are the input features, and \(\beta_1, \beta_2, \dots, \beta_n\) are the corresponding coefficients.
+
+## Vectorization
+
+The multiple linear regression equation can be written in matrix form:
+
+$$
+y = X\beta + \epsilon
+$$
+
+where:
+
+- **X** is an \(n \times (p+1)\) matrix, where \(n\) is the number of samples, \(p\) is the number of input features, and each row represents a data point with a bias term (1) and the input feature values
+- \(\beta\) is a \((p+1) \times 1\) vector, containing the intercept and slope coefficients
+- \(\epsilon\) is an \(n \times 1\) vector, representing the error terms
+
+## Important Functions and Equations
+
+### Cost Function (Mean Squared Error - MSE)
+
+The cost function measures the average squared difference between predicted and actual values. The goal is to minimize the cost function.
+
+$$
+J(\beta) = \frac{1}{2n} \sum{(y_i - (\beta_0 + \beta_1x_{1_i} + \beta_2x_{2_i} + \dots + \beta_nx_{n_i}))^2}
+$$
+
+where \(J(\beta)\) is the cost function, \(n\) is the number of samples, and \(y_i, x_{1_i}, x_{2_i}, \dots, x_{n_i}\) are the \(i\)-th target variable and input feature values, respectively.
+
+### Gradient Descent
+
+Gradient descent is an optimization algorithm used to minimize the cost function. It updates the model parameters iteratively using the following equations:
+
+$$
+\beta_0^{new} = \beta_0^{old} - \alpha \times \frac{1}{n} \sum(-2 \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_{1_i} + \beta_2^{old} \times x_{2_i} + \dots + \beta_n^{old} \times x_{n_i})))
+$$
+
+$$
+\beta_1^{new} = \beta_1^{old} - \alpha \times \frac{1}{n} \sum(-2 \times x_{1_i} \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_{1_i} + \beta_2^{old} \times x_{2_i} + \dots + \beta_n^{old} \times x_{n_i})))
+$$
+
+...
+
+$$
+\beta_n^{new} = \beta_n^{old} - \alpha \times \frac{1}{n} \sum(-2 \times x_{n_i} \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_{1_i} + \beta_2^{old} \times x_{2_i} + \dots + \beta_n^{old} \times x_{n_i})))
+$$
+
+where \(\alpha\) is the learning rate, and \(\beta_0^{old}, \beta_1^{old}, \beta_2^{old}, \dots, \beta_n^{old}\) are the previous values of the intercept and slope coefficients, respectively.
+
+# Polynomial Regression
+
+**Polynomial Regression** is a type of regression analysis where the relationship between the independent variable and the dependent variable is modeled as an nth-degree polynomial.
+
+## Equation
+
+The polynomial regression equation is:
+
+$$
+y = \beta_0 + \beta_1x + \beta_2x^2 + \dots + \beta_nx^n + \epsilon
+$$
+
+where \(x\) is the input feature, and \(\beta_1, \beta_2, \dots, \beta_n\) are the corresponding coefficients.
+
+## Vectorization
+
+The polynomial regression equation can be written in matrix form:
+
+$$
+y = X\beta + \epsilon
+$$
+
+where:
+
+- **X** is an \(n \times (n+1)\) matrix, where \(n\) is the number of samples, and each row represents a data point with a bias term (1) and the input feature values raised to the powers of 1, 2, \dots, \(n\)
+- \(\beta\) is an \((n+1)
+
+ \times 1\) vector, containing the intercept and slope coefficients
+- \(\epsilon\) is an \(n \times 1\) vector, representing the error terms
+
+## Important Functions and Equations
+
+### Cost Function (Mean Squared Error - MSE)
+
+The cost function measures the average squared difference between predicted and actual values. The goal is to minimize the cost function.
+
+$$
+J(\beta) = \frac{1}{2n} \sum{(y_i - (\beta_0 + \beta_1x_i + \beta_2x_i^2 + \dots + \beta_nx_i^n))^2}
+$$
+
+where \(J(\beta)\) is the cost function, \(n\) is the number of samples, and \(y_i\) and \(x_i\) are the \(i\)-th target variable and input feature values, respectively.
+
+### Gradient Descent
+
+Gradient descent is an optimization algorithm used to minimize the cost function. It updates the model parameters iteratively using the following equations:
+
+$$
+\beta_0^{new} = \beta_0^{old} - \alpha \times \frac{1}{n} \sum(-2 \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_i + \beta_2^{old} \times x_i^2 + \dots + \beta_n^{old} \times x_i^n)))
+$$
+
+$$
+\beta_1^{new} = \beta_1^{old} - \alpha \times \frac{1}{n} \sum(-2 \times x_i \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_i + \beta_2^{old} \times x_i^2 + \dots + \beta_n^{old} \times x_i^n)))
+$$
+
+...
+
+$$
+\beta_n^{new} = \beta_n^{old} - \alpha \times \frac{1}{n} \sum(-2 \times x_i^n \times (y_i - (\beta_0^{old} + \beta_1^{old} \times x_i + \beta_2^{old} \times x_i^2 + \dots + \beta_n^{old} \times x_i^n)))
+$$
+
+where \(\alpha\) is the learning rate, and \(\beta_0^{old}, \beta_1^{old}, \beta_2^{old}, \dots, \beta_n^{old}\) are the previous values of the intercept and slope coefficients, respectively.
+
+## Polynomial Feature Transformation
+
+In polynomial regression, we transform the original input features into polynomial features. For example, for a 2nd-degree polynomial, we create the features \(x^2\) in addition to the original feature \(x\).
+
+This transformation can be done using libraries like Scikit-learn in Python:
+
+```python
+from sklearn.preprocessing import PolynomialFeatures
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X)
+```
+
+## Evaluating the Model
+
+The evaluation metrics for polynomial regression are the same as for simple and multiple linear regression, such as R-squared, Mean Absolute Error, and Mean Squared Error.
+
+---
+
+This concludes the guide on Simple Linear Regression, Multiple Linear Regression, and Polynomial Regression.
+```
+
+This guide provides a clear and structured overview of linear regression techniques, from simple to polynomial. You can now use this Markdown code to format your document. Let me know if you need further customization!
