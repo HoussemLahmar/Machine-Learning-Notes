@@ -24,7 +24,7 @@ y = \text{activation}(w \cdot x + b)
 $$
 
 where:
-- \( w \) is the weight vector,
+- $$\( w \) $$ is the weight vector,
 - \( x \) is the input vector,
 - \( b \) is the bias term,
 - \( \text{activation} \) is the step function for binary classification.
