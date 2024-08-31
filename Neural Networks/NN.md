@@ -21,7 +21,7 @@ A perceptron calculates a weighted sum of the inputs and applies an activation f
 
 y = $`(\text{activation}(w \cdot x + b))`$
 
-$$ y = \text{activation}(W \cdot X + b) $$
+$$\ y = \text{activation}(W \cdot X + b)\ $$
 
 
 where:
