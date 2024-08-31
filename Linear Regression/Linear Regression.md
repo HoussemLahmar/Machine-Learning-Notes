@@ -9,7 +9,7 @@
 
 The simple linear regression equation is:
 
-```
+```math
 y = β0 + β1x + ε
 ```
 
