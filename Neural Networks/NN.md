@@ -20,7 +20,7 @@ The perceptron is the simplest type of neural network, consisting of a single la
 A perceptron calculates a weighted sum of the inputs and applies an activation function:
 
 ```math
-y = \text{activation}(w \cdot x + b)
+y = $`\text{activation}(w \cdot x + b)`$
 ```
 
 where:
