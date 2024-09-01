@@ -9,17 +9,18 @@
 The simple linear regression equation is:
 
 
-$
-y = $\beta_0$ + $\beta_1x$ + $\epsilon$
+$$
+y = \beta_0 + \beta_1x + \epsilon
 
-$
+$$
+
 where:
 
-- \(y\) is the target variable (output)
-- \(x\) is the input feature (predictor)
-- \(\beta_0\) is the intercept or bias term
-- \(\beta_1\) is the slope coefficient
-- \(\epsilon\) is the error term (residual)
+- $$\(y\)$$ is the target variable (output)
+- $$\(x\)$$ is the input feature (predictor)
+- $$\(\beta_0\)$$ is the intercept or bias term
+- $$\(\beta_1\)$$ is the slope coefficient
+- $$\(\epsilon\)$$ is the error term (residual)
 
 ## Vectorization
 
