@@ -12,7 +12,7 @@ Let's consider a binary classification problem where we want to predict the prob
 
 $$ p(y=1|x) = \frac{1}{1 + e^{-z}} $$
 
-where \( z = w^T x + b \), \( w \) is the weight vector, \( b \) is the bias term, and \( e \) is the base of the natural logarithm.
+where $$\( z = w^T x + b \)$$, $$\( w \)$$ is the weight vector, $$\( b \)$$ is the bias term, and $$\( e \)$$ is the base of the natural logarithm.
 
 ## 2. Binary Classification
 
@@ -62,7 +62,7 @@ $$ \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} $$
 
 The F1 measure is the harmonic mean of precision and recall.
 
-$$ \text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall} $$
+$$ \text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision}} + \text{Recall} $$
 
 ## 7. ROC AUC
 
