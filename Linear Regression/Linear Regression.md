@@ -31,9 +31,9 @@ $$
 
 where:
 
-- **X** is an \(n \times 2\) matrix, where \(n\) is the number of samples, and each row represents a data point with a bias term (1) and the input feature value
-- \(\beta\) is a \(2 \times 1\) vector, containing the intercept and slope coefficients
-- \(\epsilon\) is an \(n \times 1\) vector, representing the error terms
+- **X** is an $$\(n \times 2\)$$ matrix, where $$\(n\)$$ is the number of samples, and each row represents a data point with a bias term (1) and the input feature value
+- $$\(\beta\)$$ is a $$\(2 \times 1\)$$ vector, containing the intercept and slope coefficients
+- $$\(\epsilon\)$$ is an $$\(n \times 1\)$$ vector, representing the error terms
 
 ## Important Functions and Equations
 
